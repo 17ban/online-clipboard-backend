@@ -1,12 +1,5 @@
 const http = require('http')
 
-const moment = require('moment')
-function log(...msg) {
-    let time = moment().format('YYYY/M/D H:mm:ss')
-    console.log(`[${time}]`, ...msg)
-}
-
-
 // 引入 koa app 实例
 const app =  require('../src/app')
 
@@ -29,17 +22,17 @@ for(let i = 0; i < args.length; i++) {
 if(httpPort) {
     const httpServer = http.createServer(app.callback())
     httpServer.listen(httpPort)
-    log(`HTTP service listening on Port:${httpPort}.`)
+    console.log(`HTTP service listening on Port:${httpPort}.`)
 }
 
 
 // 启动 https 服务
 if(httpsPort) {
-    log(`HTTPS service listening on Port:${httpsPort}.`)
+    console.log(`HTTPS service listening on Port:${httpsPort}.`)
 }
 
 
 // 捕获意料之外的异常
 process.on('uncaughtException', err => {
-    log(err)
+    console.log(err)
 })
