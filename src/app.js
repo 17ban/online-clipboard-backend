@@ -31,10 +31,7 @@ const status = {
 // 全局状态
 let totalTextAmount = 0
 let totalTextLength = 0
-const textMap = {
-    '996': '996.icu',
-    '17BAN': '17ban.icu'
-}
+const textMap = { }
 
 
 // 实例化 koa app
