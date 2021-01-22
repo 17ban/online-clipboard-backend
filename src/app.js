@@ -70,7 +70,7 @@ app.use(async (ctx, next) => {
         ctx.status = 503
         ctx.body = {
             status: status.REJECT,
-            msg: 'The amount of text reaches the maximum.'
+            msg: 'The amount of text in server reaches the maximum.'
         }
         return
     }
@@ -81,7 +81,7 @@ app.use(async (ctx, next) => {
         ctx.status = 403
         ctx.body = {
             status: status.REJECT,
-            msg: 'Exceeds the limit of text length.'
+            msg: 'Exceeds the limitation of text length.'
         }
         return
     }
@@ -146,7 +146,7 @@ app.use(async (ctx, next) => {
         ctx.status = 404
         ctx.body = {
             status: status.ERROR,
-            msg: 'Not Found.'
+            msg: `Can't find any text by "${key}"`
         }
     }
 })
