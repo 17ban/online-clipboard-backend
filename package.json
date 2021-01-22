@@ -24,5 +24,9 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "nodemonConfig": {
+    "ext": "js",
+    "delay": "2500"
   }
 }
