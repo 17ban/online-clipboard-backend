@@ -1,13 +1,22 @@
 {
   "name": "online-clipboard-api",
+  "description": "A Koa application that provides HTTP APIs for online clipboard.",
   "version": "1.0.0",
-  "author": "17ban",
   "license": "MIT",
+  "author": {
+    "name": "17ban",
+    "email": "17ban.1024@gmail.com",
+    "url": "https://17ban.icu"
+  },
+  "homepage": "https://cb.17ban.icu/",
+  "repository": "github:17ban/online-clipboard-api",
+  "bugs": "https://github.com/17ban/online-clipboard-api/issues",
+  "main": "src/app.js",
   "private": true,
   "scripts": {
     "start": "node ./bin/www.js --http 8010",
     "nodemon": "nodemon ./bin/www.js --http 8010",
-    "bg": "nohup nodemon ./bin/www.js --http 8010 &"
+    "nohup": "nohup nodemon ./bin/www.js --http 8010 &"
   },
   "dependencies": {
     "crypto-js": "^4.0.0",
