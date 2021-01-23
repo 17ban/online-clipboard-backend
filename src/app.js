@@ -57,7 +57,7 @@ app.use(async (ctx, next) => {
 
 // 存
 app.use(async (ctx, next) => {
-    if(!match(ctx, 'PUT', '/api/text')) {
+    if(!match(ctx, 'POST', '/api/text')) {
         await next()
         return
     }
