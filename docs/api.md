@@ -57,7 +57,7 @@
 {
 	"status": "OK",
 	"msg": "Succeed.",
-    "key": "B17A",
+	"key": "B17A",
 	"exp": 1611252171677
 }
 ```
