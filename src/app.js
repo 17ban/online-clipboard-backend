@@ -165,7 +165,7 @@ app.use(async (ctx, next) => {
     } else {
         ctx.status = 404
         ctx.body = {
-            status: status.ERROR,
+            status: status.FAIL,
             msg: `Can't find any text by "${key}"`
         }
     }
