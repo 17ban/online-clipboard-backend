@@ -23,6 +23,7 @@ const maxTextAmount = 100_000
 const maxTextLength = 10_000
 const status = {
     OK: 'OK',
+    FAIL: 'FAIL',
     ERROR: 'ERROR',
     REJECT: 'REJECT'
 }
