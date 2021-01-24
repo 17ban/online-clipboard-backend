@@ -172,6 +172,29 @@ app.use(async (ctx, next) => {
 })
 
 
+// 删除
+app.use(async (ctx, next) => {
+    if(!match(ctx, 'DELETE', '/api/text')) {
+        await next()
+        return
+    }
+    let key = ctx.query?.key?.toUpperCase()
+    let isDeleted = textMap.delete(key)
+    if(isDeleted) {
+        ctx.body = {
+            status: status.OK,
+            msg: 'Succeed.'
+        }
+    } else {
+        ctx.status = 404
+        ctx.body = {
+            status: status.FAIL,
+            msg: `Can't find any text by "${key}"`
+        }
+    }
+})
+
+
 // 查询服务器状态
 app.use(async (ctx, next) => {
     if(!match(ctx, 'GET', '/api/status')) {
