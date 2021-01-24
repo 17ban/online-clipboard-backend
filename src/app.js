@@ -52,7 +52,7 @@ const textMap = {
     },
     delete(key) {
         let text = this.get(key)
-        if(text === undefined) {
+        if(text !== undefined) {
             this.totalTextAmount -= 1
             this.totalTextLength -= text.length
             return this._map.delete(key)
