@@ -29,9 +29,36 @@ const status = {
 
 
 // 全局状态
-let totalTextAmount = 0
-let totalTextLength = 0
-const textMap = { }
+const textMap = {
+    _map: new Map(),
+    totalTextAmount: 0,
+    totalTextLength: 0,
+    get(key) {
+        return this._map.get(key)
+    },
+    has(key) {
+        return this._map.has(key)
+    },
+
+    set(key, text) {
+        if(this.has(key)) {
+            return false
+        }
+        this._map.set(key, text)
+        this.totalTextAmount += 1
+        this.totalTextLength += text.length
+        return true
+    },
+    delete(key) {
+        let text = this.get(key)
+        if(text === undefined) {
+            this.totalTextAmount -= 1
+            this.totalTextLength -= text.length
+            return this._map.delete(key)
+        }
+        return false
+    }
+}
 
 
 // 实例化 koa app
@@ -63,7 +90,7 @@ app.use(async (ctx, next) => {
     }
 
     // 检查是否已经满载
-    if(totalTextAmount >= maxTextAmount) {
+    if(textMap.totalTextAmount >= maxTextAmount) {
         ctx.status = 503
         ctx.body = {
             status: status.REJECT,
@@ -94,14 +121,9 @@ app.use(async (ctx, next) => {
     let retry = 0
     for(; retry < 16; retry++) {
         let key = hash(text, salt)
-        if(!textMap[key]) {
-            textMap[key] = text
-            totalTextAmount++
-            totalTextLength += text.length
+        if(textMap.set(key, text)) {
             setTimeout(() => {
-                delete textMap[key]
-                totalTextAmount--
-                totalTextLength -= text.length
+                textMap.delete(key)
             }, timeout)
             ctx.body = {
                 status: status.OK,
@@ -132,7 +154,7 @@ app.use(async (ctx, next) => {
         return
     }
     let key = ctx.query?.key?.toUpperCase()
-    let text = textMap[key]
+    let text = textMap.get(key)
     if(text) {
         ctx.body = {
             status: status.OK,
@@ -160,8 +182,8 @@ app.use(async (ctx, next) => {
         msg: 'Succeed.',
         maxTimeout,
         maxTextAmount,
-        totalTextAmount,
-        totalTextLength
+        totalTextAmount: textMap.totalTextAmount,
+        totalTextLength: textMap.totalTextLength
     }
 })
 
