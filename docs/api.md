@@ -4,7 +4,7 @@
 
 ### 描述
 
-存入文本到服务器。
+存入一段文本到服务器，返回一个不超过 4 个字符的提取码。
 
 ### 请求 URL
 
@@ -40,6 +40,8 @@
 
 ### 请求示例
 
+`POST https://cb.17ban.icu/api/text`
+
 请求体：
 
 ```json
@@ -68,7 +70,7 @@
 
 ### 描述
 
-从服务器取出文本。
+使用提取码从服务器取出文本。
 
 ### 请求 URL
 
@@ -98,10 +100,8 @@
 
 ### 请求示例
 
-URL：
-
 ```
-https://cb.17ban.icu/api/text?key=B17A
+GET https://cb.17ban.icu/api/text?key=B17A
 ```
 
 ### 响应示例
@@ -151,10 +151,8 @@ https://cb.17ban.icu/api/text?key=B17A
 
 ### 请求示例
 
-URL：
-
 ```
-https://cb.17ban.icu/api/text?key=B17A
+DELETE https://cb.17ban.icu/api/text?key=B17A
 ```
 
 ### 响应示例
