@@ -1,5 +1,5 @@
 // 引入 koa app 实例
-const app =  require('../src/app')
+const app =  require('./app')
 
 // 处理启动参数
 let httpPort, httpsPort, sslCertPath, sslKeyPath
