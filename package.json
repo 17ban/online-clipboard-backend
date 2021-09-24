@@ -18,6 +18,7 @@
     "nodemon": "nodemon ./bin/www.js --http 8010"
   },
   "dependencies": {
+    "@koa/cors": "^3.1.0",
     "crypto-js": "^4.0.0",
     "koa": "^2.13.1",
     "koa-bodyparser": "^4.3.0",

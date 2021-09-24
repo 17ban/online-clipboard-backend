@@ -75,12 +75,8 @@ app.use(require('koa-bodyparser')())
 
 
 // 允许跨域
-app.use(async (ctx, next) => {
-    ctx.set({
-        'Access-Control-Allow-Origin': '*'
-    })
-    await next()
-})
+const cors = require('@koa/cors')
+app.use(cors())
 
 
 // 存

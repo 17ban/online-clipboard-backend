@@ -1,6 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@koa/cors': ^3.1.0
   crypto-js: ^4.0.0
   cz-conventional-changelog: 3.3.0
   koa: ^2.13.1
@@ -9,6 +10,7 @@ specifiers:
   nodemon: ^2.0.7
 
 dependencies:
+  '@koa/cors': 3.1.0
   crypto-js: 4.0.0
   koa: 2.13.1
   koa-bodyparser: 4.3.0
@@ -82,6 +84,13 @@ packages:
       chalk: 4.1.1
     dev: true
     optional: true
+
+  /@koa/cors/3.1.0:
+    resolution: {integrity: sha512-7ulRC1da/rBa6kj6P4g2aJfnET3z8Uf3SWu60cjbtxTA5g8lxRdX/Bd2P92EagGwwAhANeNw8T8if99rJliR6Q==}
+    engines: {node: '>= 8.0.0'}
+    dependencies:
+      vary: 1.1.2
+    dev: false
 
   /@sindresorhus/is/0.14.0:
     resolution: {integrity: sha512-9NET910DNaIPngYnLLPeg+Ogzqsi9uM4mSboU5y6p8S5DzMTVEsJZrawi+BoDNUVBa2DhJqQYUFvMDfgU062LQ==}
